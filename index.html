@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carl's Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Carl's Blog</h1>
+    <p class="subtitle">Gap year adventures 2026-2027</p>
+    
+    <nav class="nav-tags">
+      <button class="tag-btn active" onclick="filterPosts('all', this)">All</button>
+      <button class="tag-btn" onclick="filterPosts('about', this)">About</button>
+      <button class="tag-btn" onclick="filterPosts('exploration', this)">Exploration</button>
+      <button class="tag-btn" onclick="filterPosts('reading', this)">Reading</button>
+      <button class="tag-btn" onclick="filterPosts('photography', this)">Photography</button>
+      <button class="tag-btn" onclick="filterPosts('中文', this)">中文</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="post-list">
+
+      <!--
+      <article class="post-card" data-tags="reading">
+        <div class="meta-row">
+          <span class="date">July 31, 2026</span>
+          <div class="post-tags-container">
+            <span class="post-tag">reading</span>
+          </div>
+        </div>
+        <h2><a href="posts/anna-karenina.html">Anna Karenina</a></h2>
+        <p class="excerpt">to be published...</p>
+      </article>
+      -->
+      
+      <article class="post-card" data-tags="reading">
+        <div class="meta-row">
+          <span class="date">July 6, 2026</span>
+          <div class="post-tags-container">
+            <span class="post-tag">reading</span>
+          </div>
+        </div>
+        <h2><a href="posts/madame-bovary.html"><em>Madame Bovary</em> - In search for perpetual novelty</a></h2>
+        <p class="excerpt">Should I move to Paris for novelty? Read more...</p>
+      </article>
+
+      <article class="post-card" data-tags="about">
+        <div class="meta-row">
+          <span class="date">July 6, 2026</span>
+          <div class="post-tags-container">
+            <span class="post-tag">about</span>
+          </div>
+        </div>
+        <h2><a href="posts/why-blog.html">Why am I starting a blog in 2026?</a></h2>
+        <p class="excerpt">A quiet space for reflections and discussions. Read more...</p>
+      </article>
+
+      <article class="post-card" data-tags="about">
+        <div class="meta-row">
+          <span class="date">July 5, 2026</span>
+          <div class="post-tags-container">
+            <span class="post-tag">about</span>
+          </div>
+        </div>
+        <h2><a href="posts/about.html">About me and my gap year</a></h2>
+        <p class="excerpt">Who am I and what am I doing? Read more...</p>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Carl Ma</p>
+  </footer>
+
+  <script>
+    function filterPosts(tag, button) {
+      document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const posts = document.querySelectorAll('.post-card');
+      posts.forEach(post => {
+        const postTags = post.getAttribute('data-tags') ? post.getAttribute('data-tags').split(' ') : [];
+        if (tag === 'all' || postTags.includes(tag)) {
+          post.style.display = 'block';
+        } else {
+          post.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
