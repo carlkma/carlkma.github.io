@@ -53,9 +53,21 @@ h1 {
   gap: 1.5rem;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.75rem;
+
+  /* Mobile scroll handling */
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch; /* Smooth inertia scrolling on iOS */
+  scrollbar-width: none;             /* Hides scrollbar on Firefox */
+}
+
+/* Hides scrollbar on Chrome, Safari, Edge */
+.nav-tags::-webkit-scrollbar {
+  display: none;
 }
 
 .tag-btn {
+  flex-shrink: 0;
   background: none;
   border: none;
   font-family: var(--font-sans);
